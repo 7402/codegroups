@@ -1,0 +1,66 @@
+.TH codegroups 1
+
+.SH NAME
+codegroups \- send series of random code groups to standard output
+
+.SH SYNOPSIS
+.nf
+\fBcodegroups\fR [\fB\-c\fR \fIGROUPS_PER_ROW\fR] [\fB\-n\fR \fINUMBER_OF_GROUPS\fR]
+.fi
+
+.SH DESCRIPTION
+Generates a series of random 5-character code groups and prints to standard output. Characters are
+from the set:
+.br
+ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890.,?/=+*
+
+.SH OPTIONS
+
+.TP
+.BR \-c " " \fIGROUPS_PER_ROW\fR
+Number of code groups per row. Default is 8.
+
+.TP
+.BR \-n " " \fINUMBER_OF_GROUPS\fR
+Total number of code groups to send. Default is 32.
+
+.TP
+.BR \-\-version
+Show version.
+
+.TP
+.BR \-h ", " \-\-help\fR
+Show help message.
+
+.TP
+.BR \-\-license
+Show software copyright and license.
+
+.TP
+.BR \-\-man\-page
+Show source for this man page
+
+.SH EXAMPLES
+Generate 5 rows of 5 code groups per row:
+.PP
+.nf
+.RS
+\fBcodegroups -c 5 -n 25\fR
+.RE
+.fi
+.PP
+
+Play 80 code groups at 16 wpm:
+.PP
+.nf
+.RS
+\fBcodegroups -n 80 | mbeep -w 16 -i /dev/stdin -c\fR
+.RE
+.fi
+.PP
+
+.SH SEE ALSO
+.BR mbeep (1)
+
+.SH AUTHOR
+Michael Budiansky \fIhttps://www.7402.org/email\fR
