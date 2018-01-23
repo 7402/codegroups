@@ -50,11 +50,11 @@ Generate 5 rows of 5 code groups per row:
 .fi
 .PP
 
-Play 80 code groups at 16 wpm:
+Play 80 code groups at 16 wpm (CODEX standard):
 .PP
 .nf
 .RS
-\fBcodegroups -n 80 | mbeep -w 16 -i /dev/stdin -c\fR
+\fBcodegroups -n 80 | mbeep --codex-wpm 16 -i /dev/stdin -c\fR
 .RE
 .fi
 .PP
