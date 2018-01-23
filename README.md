@@ -48,10 +48,10 @@ Generate 5 rows of 5 code groups per row:
 codegroups -c 5 -n 25
 ```
 
-Play 80 code groups at 16 wpm:
+Play 80 code groups at 16 wpm (CODEX standard):
 
 ```
-codegroups -n 80 | mbeep -w 16 -i /dev/stdin -c
+codegroups -n 80 | mbeep --codex-wpm 16 -i /dev/stdin -c
 ```
 
 ### License
