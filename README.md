@@ -54,6 +54,10 @@ Play 80 code groups at 16 wpm (CODEX standard):
 codegroups -n 80 | mbeep --codex-wpm 16 -i /dev/stdin -c
 ```
 
+### Notes
+
+See also [Computer Tools for Morse Code Practice](https://7402.org/blog/2018/computer-tools-for-morse-code-practice.html).
+
 ### License
 
 BSD
