@@ -30,13 +30,14 @@
 #include <string.h>
 #include <time.h>
 
-void code_groups(int groups_per_row, int group_count);
+void code_groups(int groups_per_row, int group_count, bool numbers_only);
 void license(void);
 void man_page_source(void);
 
 int main(int argc, const char * argv[]) {
     bool error = false;
     bool silent = false;
+    bool numbers_only = false;
     int groups_per_row = 8;
     int group_count = 32;
     
@@ -53,10 +54,14 @@ int main(int argc, const char * argv[]) {
             group_count = atoi(argv[++index]);
             error = group_count < 1 || group_count > 1000;
             
-        //  -v --version    print version of codegroups
+        //  --numbers numbers only
+        } else if (strcmp(argv[index], "--numbers") == 0) {
+            numbers_only = true;
+
+       //  -v --version    print version of codegroups
         } else if ((strcmp(argv[index], "--version") == 0) ||
                    (strcmp(argv[index], "-v") == 0)) {
-            printf("codegroups 0.9\n");
+            printf("codegroups 0.9.1\n");
             silent = true;;
             
         //  -h --help       print help for codegroups
@@ -100,15 +105,15 @@ int main(int argc, const char * argv[]) {
         fprintf(stderr, "Error: invalid options\n");
         
     } else {
-        code_groups(groups_per_row, group_count);
+        code_groups(groups_per_row, group_count, numbers_only);
     }
 
     return error ? 1 : 0;
 }
 
-void code_groups(int groups_per_row, int group_count)
+void code_groups(int groups_per_row, int group_count, bool numbers_only)
 {
-    char *chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890.,?/=+*";
+    char *chars = numbers_only ? "0123456789" : "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890.,?/=+*";
     size_t nchars = strlen(chars);
     
     for (int k = 1; k <= group_count; k++) {
@@ -178,6 +183,10 @@ void man_page_source(void)
            "Total number of code groups to send. Default is 32.\n"
            "\n"
            ".TP\n"
+           ".BR \\-\\-numbers\n"
+           "Use numbers only.\n"
+           "\n"
+           ".TP\n"
            ".BR \\-\\-version\n"
            "Show version.\n"
            "\n"
@@ -217,6 +226,6 @@ void man_page_source(void)
            "\n"
            ".SH AUTHOR\n"
            "Michael Budiansky \\fIhttps://www.7402.org/email\\fR\n"
-);
+           );
 }
 
