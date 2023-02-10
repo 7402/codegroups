@@ -7,6 +7,7 @@ codegroups : main.c
 
 install : codegroups
 	cp codegroups $(BINDIR)/
+	codegroups --man-page > codegroups.1
 	mkdir -p $(MANDIR)
 	cp codegroups.1 $(MANDIR)/
 

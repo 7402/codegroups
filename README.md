@@ -18,7 +18,11 @@ Use **-c** option to choose number of groups per row.
 
 Use **-n** option to choose total number of groups.
 
+Use **-u** or **--chars** option to select characters to be used in groups.
+
 Use **--numbers** option to use numbers only.
+
+Use **--letters** option to use letters only.
 
 Combine with **mbeep** to play Morse code. See example below.
 
